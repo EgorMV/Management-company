@@ -1,0 +1,1724 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.3">
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаНомерДата" id="44">
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа номер дата</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНомерДатаРасширеннаяПодсказка" id="45"/>
+			<ChildItems>
+				<InputField name="Номер" id="1">
+					<DataPath>Объект.Number</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Документ №</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="Дата" id="4">
+					<DataPath>Объект.Date</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>от</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
+				</InputField>
+				<LabelField name="Автор" id="398">
+					<DataPath>Объект.Автор</DataPath>
+					<TextColor>style:FieldSelectionBackColor</TextColor>
+					<ContextMenu name="АвторКонтекстноеМеню" id="399"/>
+					<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="400"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="МесяцРегистрацииСтрокой" id="390">
+			<DataPath>МесяцРегистрацииСтрокой</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Месяц</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalStretch>false</HorizontalStretch>
+			<ChoiceButton>true</ChoiceButton>
+			<SpinButton>true</SpinButton>
+			<ContextMenu name="МесяцРегистрацииСтрокойКонтекстноеМеню" id="391"/>
+			<ExtendedTooltip name="МесяцРегистрацииСтрокойРасширеннаяПодсказка" id="392"/>
+			<Events>
+				<Event name="OnChange">МесяцРегистрацииСтрокойПриИзменении</Event>
+				<Event name="AutoComplete">МесяцРегистрацииСтрокойАвтоПодбор</Event>
+				<Event name="StartChoice">ПериодРегистрацииНачалоВыбора</Event>
+				<Event name="Tuning">МесяцРегистрацииСтрокойРегулирование</Event>
+				<Event name="TextEditEnd">МесяцРегистрацииСтрокойАвтоПодбор</Event>
+			</Events>
+		</InputField>
+		<Table name="Планирование" id="16">
+			<Representation>List</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.Планирование</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ПланированиеКонтекстноеМеню" id="17"/>
+			<AutoCommandBar name="ПланированиеКоманднаяПанель" id="18">
+				<ChildItems>
+					<Button name="ПланированиеЗаполнитьДоОкончанияПериода" id="396">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ЗаполнитьЗначениемНаПериод</CommandName>
+						<Picture>
+							<xr:Ref>StdPicture.DataCompositionSettingsWizard</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<ExtendedTooltip name="ПланированиеЗаполнитьДоОкончанияПериодаРасширеннаяПодсказка" id="397"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ПланированиеРасширеннаяПодсказка" id="19"/>
+			<SearchStringAddition name="ПланированиеСтрокаПоиска" id="20">
+				<AdditionSource>
+					<Item>Планирование</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ПланированиеСтрокаПоискаКонтекстноеМеню" id="21"/>
+				<ExtendedTooltip name="ПланированиеСтрокаПоискаРасширеннаяПодсказка" id="22"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ПланированиеСостояниеПросмотра" id="23">
+				<AdditionSource>
+					<Item>Планирование</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ПланированиеСостояниеПросмотраКонтекстноеМеню" id="24"/>
+				<ExtendedTooltip name="ПланированиеСостояниеПросмотраРасширеннаяПодсказка" id="25"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ПланированиеУправлениеПоиском" id="26">
+				<AdditionSource>
+					<Item>Планирование</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ПланированиеУправлениеПоискомКонтекстноеМеню" id="27"/>
+				<ExtendedTooltip name="ПланированиеУправлениеПоискомРасширеннаяПодсказка" id="28"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="ChoiceProcessing">ПланированиеОбработкаВыбора</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="ПланированиеНомерСтроки" id="29">
+					<DataPath>Объект.Планирование.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<FixingInTable>Left</FixingInTable>
+					<ContextMenu name="ПланированиеНомерСтрокиКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="ПланированиеНомерСтрокиРасширеннаяПодсказка" id="31"/>
+				</LabelField>
+				<InputField name="ПланированиеСотрудник" id="32">
+					<DataPath>Объект.Планирование.Сотрудник</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<FixingInTable>Left</FixingInTable>
+					<ContextMenu name="ПланированиеСотрудникКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="ПланированиеСотрудникРасширеннаяПодсказка" id="34"/>
+					<Events>
+						<Event name="OnChange">ПланированиеСотрудникПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ПланированиеСменыИтог" id="393">
+					<DataPath>Объект.Планирование.СменыИтог</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Смены</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<FixingInTable>Left</FixingInTable>
+					<ContextMenu name="ПланированиеСменыИтогКонтекстноеМеню" id="394"/>
+					<ExtendedTooltip name="ПланированиеСменыИтогРасширеннаяПодсказка" id="395"/>
+				</InputField>
+				<ColumnGroup name="ПланированиеГруппа1" id="46">
+					<Width>4</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ExtendedTooltip name="ПланированиеГруппа1РасширеннаяПодсказка" id="47"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_1" id="51">
+							<DataPath>Объект.Планирование.Проект1_1</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>6</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_1КонтекстноеМеню" id="52"/>
+							<ExtendedTooltip name="ПланированиеПроект1_1РасширеннаяПодсказка" id="53"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_1" id="54">
+							<DataPath>Объект.Планирование.Проект2_1</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>6</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_1КонтекстноеМеню" id="55"/>
+							<ExtendedTooltip name="ПланированиеПроект2_1РасширеннаяПодсказка" id="56"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_1" id="57">
+							<DataPath>Объект.Планирование.Комментарий_1</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>6</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<TextColor>style:ГруппаВариантовОтчетовЦвет</TextColor>
+							<ContextMenu name="ПланированиеКомментарий_1КонтекстноеМеню" id="58"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_1РасширеннаяПодсказка" id="59"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа2" id="60">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа2РасширеннаяПодсказка" id="61"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_2" id="120">
+							<DataPath>Объект.Планирование.Проект1_2</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<MaxWidth>4</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_2КонтекстноеМеню" id="121"/>
+							<ExtendedTooltip name="ПланированиеПроект1_2РасширеннаяПодсказка" id="122"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_2" id="123">
+							<DataPath>Объект.Планирование.Проект2_2</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<MaxWidth>4</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_2КонтекстноеМеню" id="124"/>
+							<ExtendedTooltip name="ПланированиеПроект2_2РасширеннаяПодсказка" id="125"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_2" id="126">
+							<DataPath>Объект.Планирование.Комментарий_2</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<MaxWidth>4</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_2КонтекстноеМеню" id="127"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_2РасширеннаяПодсказка" id="128"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа3" id="62">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа3РасширеннаяПодсказка" id="63"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_3" id="129">
+							<DataPath>Объект.Планирование.Проект1_3</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>4</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_3КонтекстноеМеню" id="130"/>
+							<ExtendedTooltip name="ПланированиеПроект1_3РасширеннаяПодсказка" id="131"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_3" id="132">
+							<DataPath>Объект.Планирование.Проект2_3</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>4</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_3КонтекстноеМеню" id="133"/>
+							<ExtendedTooltip name="ПланированиеПроект2_3РасширеннаяПодсказка" id="134"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_3" id="135">
+							<DataPath>Объект.Планирование.Комментарий_3</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>4</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_3КонтекстноеМеню" id="136"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_3РасширеннаяПодсказка" id="137"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа4" id="64">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа4РасширеннаяПодсказка" id="65"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_4" id="138">
+							<DataPath>Объект.Планирование.Проект1_4</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>4</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_4КонтекстноеМеню" id="139"/>
+							<ExtendedTooltip name="ПланированиеПроект1_4РасширеннаяПодсказка" id="140"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_4" id="141">
+							<DataPath>Объект.Планирование.Проект2_4</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>4</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_4КонтекстноеМеню" id="142"/>
+							<ExtendedTooltip name="ПланированиеПроект2_4РасширеннаяПодсказка" id="143"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_4" id="144">
+							<DataPath>Объект.Планирование.Комментарий_4</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>4</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_4КонтекстноеМеню" id="145"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_4РасширеннаяПодсказка" id="146"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа5" id="66">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа5РасширеннаяПодсказка" id="67"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_5" id="147">
+							<DataPath>Объект.Планирование.Проект1_5</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>4</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_5КонтекстноеМеню" id="148"/>
+							<ExtendedTooltip name="ПланированиеПроект1_5РасширеннаяПодсказка" id="149"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_5" id="150">
+							<DataPath>Объект.Планирование.Проект2_5</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>4</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_5КонтекстноеМеню" id="151"/>
+							<ExtendedTooltip name="ПланированиеПроект2_5РасширеннаяПодсказка" id="152"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_5" id="153">
+							<DataPath>Объект.Планирование.Комментарий_5</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>4</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_5КонтекстноеМеню" id="154"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_5РасширеннаяПодсказка" id="155"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа6" id="68">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа6РасширеннаяПодсказка" id="69"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_6" id="156">
+							<DataPath>Объект.Планирование.Проект1_6</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>4</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_6КонтекстноеМеню" id="157"/>
+							<ExtendedTooltip name="ПланированиеПроект1_6РасширеннаяПодсказка" id="158"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_6" id="159">
+							<DataPath>Объект.Планирование.Проект2_6</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>4</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_6КонтекстноеМеню" id="160"/>
+							<ExtendedTooltip name="ПланированиеПроект2_6РасширеннаяПодсказка" id="161"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_6" id="162">
+							<DataPath>Объект.Планирование.Комментарий_6</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>4</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_6КонтекстноеМеню" id="163"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_6РасширеннаяПодсказка" id="164"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа7" id="70">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа7РасширеннаяПодсказка" id="71"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_7" id="165">
+							<DataPath>Объект.Планирование.Проект1_7</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>4</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_7КонтекстноеМеню" id="166"/>
+							<ExtendedTooltip name="ПланированиеПроект1_7РасширеннаяПодсказка" id="167"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_7" id="168">
+							<DataPath>Объект.Планирование.Проект2_7</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>4</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_7КонтекстноеМеню" id="169"/>
+							<ExtendedTooltip name="ПланированиеПроект2_7РасширеннаяПодсказка" id="170"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_7" id="171">
+							<DataPath>Объект.Планирование.Комментарий_7</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>4</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_7КонтекстноеМеню" id="172"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_7РасширеннаяПодсказка" id="173"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа8" id="72">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа8РасширеннаяПодсказка" id="73"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_8" id="174">
+							<DataPath>Объект.Планирование.Проект1_8</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>4</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_8КонтекстноеМеню" id="175"/>
+							<ExtendedTooltip name="ПланированиеПроект1_8РасширеннаяПодсказка" id="176"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_8" id="177">
+							<DataPath>Объект.Планирование.Проект2_8</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>4</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_8КонтекстноеМеню" id="178"/>
+							<ExtendedTooltip name="ПланированиеПроект2_8РасширеннаяПодсказка" id="179"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_8" id="180">
+							<DataPath>Объект.Планирование.Комментарий_8</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>4</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_8КонтекстноеМеню" id="181"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_8РасширеннаяПодсказка" id="182"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа9" id="74">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа9РасширеннаяПодсказка" id="75"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_9" id="183">
+							<DataPath>Объект.Планирование.Проект1_9</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_9КонтекстноеМеню" id="184"/>
+							<ExtendedTooltip name="ПланированиеПроект1_9РасширеннаяПодсказка" id="185"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_9" id="186">
+							<DataPath>Объект.Планирование.Проект2_9</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_9КонтекстноеМеню" id="187"/>
+							<ExtendedTooltip name="ПланированиеПроект2_9РасширеннаяПодсказка" id="188"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_9" id="189">
+							<DataPath>Объект.Планирование.Комментарий_9</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_9КонтекстноеМеню" id="190"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_9РасширеннаяПодсказка" id="191"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа10" id="76">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа10РасширеннаяПодсказка" id="77"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_10" id="192">
+							<DataPath>Объект.Планирование.Проект1_10</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_10КонтекстноеМеню" id="193"/>
+							<ExtendedTooltip name="ПланированиеПроект1_10РасширеннаяПодсказка" id="194"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_10" id="195">
+							<DataPath>Объект.Планирование.Проект2_10</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_10КонтекстноеМеню" id="196"/>
+							<ExtendedTooltip name="ПланированиеПроект2_10РасширеннаяПодсказка" id="197"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_10" id="198">
+							<DataPath>Объект.Планирование.Комментарий_10</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_10КонтекстноеМеню" id="199"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_10РасширеннаяПодсказка" id="200"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа11" id="78">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа11РасширеннаяПодсказка" id="79"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_11" id="207">
+							<DataPath>Объект.Планирование.Проект1_11</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_11КонтекстноеМеню" id="208"/>
+							<ExtendedTooltip name="ПланированиеПроект1_11РасширеннаяПодсказка" id="209"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_11" id="201">
+							<DataPath>Объект.Планирование.Проект2_11</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_11КонтекстноеМеню" id="202"/>
+							<ExtendedTooltip name="ПланированиеПроект2_11РасширеннаяПодсказка" id="203"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_11" id="204">
+							<DataPath>Объект.Планирование.Комментарий_11</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_11КонтекстноеМеню" id="205"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_11РасширеннаяПодсказка" id="206"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа12" id="80">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа12РасширеннаяПодсказка" id="81"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_12" id="210">
+							<DataPath>Объект.Планирование.Проект1_12</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_12КонтекстноеМеню" id="211"/>
+							<ExtendedTooltip name="ПланированиеПроект1_12РасширеннаяПодсказка" id="212"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_12" id="213">
+							<DataPath>Объект.Планирование.Проект2_12</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_12КонтекстноеМеню" id="214"/>
+							<ExtendedTooltip name="ПланированиеПроект2_12РасширеннаяПодсказка" id="215"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_12" id="216">
+							<DataPath>Объект.Планирование.Комментарий_12</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_12КонтекстноеМеню" id="217"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_12РасширеннаяПодсказка" id="218"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа13" id="82">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа13РасширеннаяПодсказка" id="83"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_13" id="219">
+							<DataPath>Объект.Планирование.Проект1_13</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_13КонтекстноеМеню" id="220"/>
+							<ExtendedTooltip name="ПланированиеПроект1_13РасширеннаяПодсказка" id="221"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_13" id="222">
+							<DataPath>Объект.Планирование.Проект2_13</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_13КонтекстноеМеню" id="223"/>
+							<ExtendedTooltip name="ПланированиеПроект2_13РасширеннаяПодсказка" id="224"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_13" id="225">
+							<DataPath>Объект.Планирование.Комментарий_13</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_13КонтекстноеМеню" id="226"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_13РасширеннаяПодсказка" id="227"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа14" id="84">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа14РасширеннаяПодсказка" id="85"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_14" id="228">
+							<DataPath>Объект.Планирование.Проект1_14</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_14КонтекстноеМеню" id="229"/>
+							<ExtendedTooltip name="ПланированиеПроект1_14РасширеннаяПодсказка" id="230"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_14" id="231">
+							<DataPath>Объект.Планирование.Проект2_14</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_14КонтекстноеМеню" id="232"/>
+							<ExtendedTooltip name="ПланированиеПроект2_14РасширеннаяПодсказка" id="233"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_14" id="234">
+							<DataPath>Объект.Планирование.Комментарий_14</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_14КонтекстноеМеню" id="235"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_14РасширеннаяПодсказка" id="236"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа15" id="86">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа15РасширеннаяПодсказка" id="87"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_15" id="243">
+							<DataPath>Объект.Планирование.Проект1_15</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_15КонтекстноеМеню" id="244"/>
+							<ExtendedTooltip name="ПланированиеПроект1_15РасширеннаяПодсказка" id="245"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_15" id="237">
+							<DataPath>Объект.Планирование.Проект2_15</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_15КонтекстноеМеню" id="238"/>
+							<ExtendedTooltip name="ПланированиеПроект2_15РасширеннаяПодсказка" id="239"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_15" id="240">
+							<DataPath>Объект.Планирование.Комментарий_15</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_15КонтекстноеМеню" id="241"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_15РасширеннаяПодсказка" id="242"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа16" id="88">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа16РасширеннаяПодсказка" id="89"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_16" id="246">
+							<DataPath>Объект.Планирование.Проект1_16</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_16КонтекстноеМеню" id="247"/>
+							<ExtendedTooltip name="ПланированиеПроект1_16РасширеннаяПодсказка" id="248"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_16" id="249">
+							<DataPath>Объект.Планирование.Проект2_16</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_16КонтекстноеМеню" id="250"/>
+							<ExtendedTooltip name="ПланированиеПроект2_16РасширеннаяПодсказка" id="251"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_16" id="252">
+							<DataPath>Объект.Планирование.Комментарий_16</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_16КонтекстноеМеню" id="253"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_16РасширеннаяПодсказка" id="254"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа17" id="90">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа17РасширеннаяПодсказка" id="91"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_17" id="255">
+							<DataPath>Объект.Планирование.Проект1_17</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_17КонтекстноеМеню" id="256"/>
+							<ExtendedTooltip name="ПланированиеПроект1_17РасширеннаяПодсказка" id="257"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_17" id="258">
+							<DataPath>Объект.Планирование.Проект2_17</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_17КонтекстноеМеню" id="259"/>
+							<ExtendedTooltip name="ПланированиеПроект2_17РасширеннаяПодсказка" id="260"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_17" id="261">
+							<DataPath>Объект.Планирование.Комментарий_17</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_17КонтекстноеМеню" id="262"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_17РасширеннаяПодсказка" id="263"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа18" id="92">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа18РасширеннаяПодсказка" id="93"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_18" id="264">
+							<DataPath>Объект.Планирование.Проект1_18</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_18КонтекстноеМеню" id="265"/>
+							<ExtendedTooltip name="ПланированиеПроект1_18РасширеннаяПодсказка" id="266"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_18" id="267">
+							<DataPath>Объект.Планирование.Проект2_18</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_18КонтекстноеМеню" id="268"/>
+							<ExtendedTooltip name="ПланированиеПроект2_18РасширеннаяПодсказка" id="269"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_18" id="270">
+							<DataPath>Объект.Планирование.Комментарий_18</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_18КонтекстноеМеню" id="271"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_18РасширеннаяПодсказка" id="272"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа19" id="94">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа19РасширеннаяПодсказка" id="95"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_19" id="273">
+							<DataPath>Объект.Планирование.Проект1_19</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_19КонтекстноеМеню" id="274"/>
+							<ExtendedTooltip name="ПланированиеПроект1_19РасширеннаяПодсказка" id="275"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_19" id="276">
+							<DataPath>Объект.Планирование.Проект2_19</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_19КонтекстноеМеню" id="277"/>
+							<ExtendedTooltip name="ПланированиеПроект2_19РасширеннаяПодсказка" id="278"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_19" id="279">
+							<DataPath>Объект.Планирование.Комментарий_19</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_19КонтекстноеМеню" id="280"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_19РасширеннаяПодсказка" id="281"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа20" id="96">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа20РасширеннаяПодсказка" id="97"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_20" id="282">
+							<DataPath>Объект.Планирование.Проект1_20</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_20КонтекстноеМеню" id="283"/>
+							<ExtendedTooltip name="ПланированиеПроект1_20РасширеннаяПодсказка" id="284"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_20" id="285">
+							<DataPath>Объект.Планирование.Проект2_20</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_20КонтекстноеМеню" id="286"/>
+							<ExtendedTooltip name="ПланированиеПроект2_20РасширеннаяПодсказка" id="287"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_20" id="288">
+							<DataPath>Объект.Планирование.Комментарий_20</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_20КонтекстноеМеню" id="289"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_20РасширеннаяПодсказка" id="290"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа21" id="98">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа21РасширеннаяПодсказка" id="99"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_21" id="291">
+							<DataPath>Объект.Планирование.Проект1_21</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_21КонтекстноеМеню" id="292"/>
+							<ExtendedTooltip name="ПланированиеПроект1_21РасширеннаяПодсказка" id="293"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_21" id="294">
+							<DataPath>Объект.Планирование.Проект2_21</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_21КонтекстноеМеню" id="295"/>
+							<ExtendedTooltip name="ПланированиеПроект2_21РасширеннаяПодсказка" id="296"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_21" id="297">
+							<DataPath>Объект.Планирование.Комментарий_21</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_21КонтекстноеМеню" id="298"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_21РасширеннаяПодсказка" id="299"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа22" id="100">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа22РасширеннаяПодсказка" id="101"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_22" id="300">
+							<DataPath>Объект.Планирование.Проект1_22</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_22КонтекстноеМеню" id="301"/>
+							<ExtendedTooltip name="ПланированиеПроект1_22РасширеннаяПодсказка" id="302"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_22" id="303">
+							<DataPath>Объект.Планирование.Проект2_22</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_22КонтекстноеМеню" id="304"/>
+							<ExtendedTooltip name="ПланированиеПроект2_22РасширеннаяПодсказка" id="305"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_22" id="306">
+							<DataPath>Объект.Планирование.Комментарий_22</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_22КонтекстноеМеню" id="307"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_22РасширеннаяПодсказка" id="308"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа23" id="102">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа23РасширеннаяПодсказка" id="103"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_23" id="312">
+							<DataPath>Объект.Планирование.Проект1_23</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_23КонтекстноеМеню" id="313"/>
+							<ExtendedTooltip name="ПланированиеПроект1_23РасширеннаяПодсказка" id="314"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_23" id="309">
+							<DataPath>Объект.Планирование.Проект2_23</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_23КонтекстноеМеню" id="310"/>
+							<ExtendedTooltip name="ПланированиеПроект2_23РасширеннаяПодсказка" id="311"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_23" id="315">
+							<DataPath>Объект.Планирование.Комментарий_23</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_23КонтекстноеМеню" id="316"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_23РасширеннаяПодсказка" id="317"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа24" id="104">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа24РасширеннаяПодсказка" id="105"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_24" id="318">
+							<DataPath>Объект.Планирование.Проект1_24</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_24КонтекстноеМеню" id="319"/>
+							<ExtendedTooltip name="ПланированиеПроект1_24РасширеннаяПодсказка" id="320"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_24" id="321">
+							<DataPath>Объект.Планирование.Проект2_24</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_24КонтекстноеМеню" id="322"/>
+							<ExtendedTooltip name="ПланированиеПроект2_24РасширеннаяПодсказка" id="323"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_24" id="324">
+							<DataPath>Объект.Планирование.Комментарий_24</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_24КонтекстноеМеню" id="325"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_24РасширеннаяПодсказка" id="326"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа25" id="106">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа25РасширеннаяПодсказка" id="107"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_25" id="327">
+							<DataPath>Объект.Планирование.Проект1_25</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_25КонтекстноеМеню" id="328"/>
+							<ExtendedTooltip name="ПланированиеПроект1_25РасширеннаяПодсказка" id="329"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_25" id="330">
+							<DataPath>Объект.Планирование.Проект2_25</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_25КонтекстноеМеню" id="331"/>
+							<ExtendedTooltip name="ПланированиеПроект2_25РасширеннаяПодсказка" id="332"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_25" id="333">
+							<DataPath>Объект.Планирование.Комментарий_25</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_25КонтекстноеМеню" id="334"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_25РасширеннаяПодсказка" id="335"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа26" id="108">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа26РасширеннаяПодсказка" id="109"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_26" id="336">
+							<DataPath>Объект.Планирование.Проект1_26</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_26КонтекстноеМеню" id="337"/>
+							<ExtendedTooltip name="ПланированиеПроект1_26РасширеннаяПодсказка" id="338"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_26" id="339">
+							<DataPath>Объект.Планирование.Проект2_26</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_26КонтекстноеМеню" id="340"/>
+							<ExtendedTooltip name="ПланированиеПроект2_26РасширеннаяПодсказка" id="341"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_26" id="342">
+							<DataPath>Объект.Планирование.Комментарий_26</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_26КонтекстноеМеню" id="343"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_26РасширеннаяПодсказка" id="344"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа27" id="110">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа27РасширеннаяПодсказка" id="111"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_27" id="345">
+							<DataPath>Объект.Планирование.Проект1_27</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_27КонтекстноеМеню" id="346"/>
+							<ExtendedTooltip name="ПланированиеПроект1_27РасширеннаяПодсказка" id="347"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_27" id="348">
+							<DataPath>Объект.Планирование.Проект2_27</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_27КонтекстноеМеню" id="349"/>
+							<ExtendedTooltip name="ПланированиеПроект2_27РасширеннаяПодсказка" id="350"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_27" id="351">
+							<DataPath>Объект.Планирование.Комментарий_27</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_27КонтекстноеМеню" id="352"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_27РасширеннаяПодсказка" id="353"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа28" id="112">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа28РасширеннаяПодсказка" id="113"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_28" id="354">
+							<DataPath>Объект.Планирование.Проект1_28</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_28КонтекстноеМеню" id="355"/>
+							<ExtendedTooltip name="ПланированиеПроект1_28РасширеннаяПодсказка" id="356"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_28" id="357">
+							<DataPath>Объект.Планирование.Проект2_28</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_28КонтекстноеМеню" id="358"/>
+							<ExtendedTooltip name="ПланированиеПроект2_28РасширеннаяПодсказка" id="359"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_28" id="360">
+							<DataPath>Объект.Планирование.Комментарий_28</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_28КонтекстноеМеню" id="361"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_28РасширеннаяПодсказка" id="362"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа29" id="114">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа29РасширеннаяПодсказка" id="115"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_29" id="363">
+							<DataPath>Объект.Планирование.Проект1_29</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_29КонтекстноеМеню" id="364"/>
+							<ExtendedTooltip name="ПланированиеПроект1_29РасширеннаяПодсказка" id="365"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_29" id="366">
+							<DataPath>Объект.Планирование.Проект2_29</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_29КонтекстноеМеню" id="367"/>
+							<ExtendedTooltip name="ПланированиеПроект2_29РасширеннаяПодсказка" id="368"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_29" id="369">
+							<DataPath>Объект.Планирование.Комментарий_29</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_29КонтекстноеМеню" id="370"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_29РасширеннаяПодсказка" id="371"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа30" id="116">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа30РасширеннаяПодсказка" id="117"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_30" id="372">
+							<DataPath>Объект.Планирование.Проект1_30</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_30КонтекстноеМеню" id="373"/>
+							<ExtendedTooltip name="ПланированиеПроект1_30РасширеннаяПодсказка" id="374"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_30" id="375">
+							<DataPath>Объект.Планирование.Проект2_30</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_30КонтекстноеМеню" id="376"/>
+							<ExtendedTooltip name="ПланированиеПроект2_30РасширеннаяПодсказка" id="377"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_30" id="378">
+							<DataPath>Объект.Планирование.Комментарий_30</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_30КонтекстноеМеню" id="379"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_30РасширеннаяПодсказка" id="380"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ПланированиеГруппа31" id="118">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Планирование группа2</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПланированиеГруппа31РасширеннаяПодсказка" id="119"/>
+					<ChildItems>
+						<InputField name="ПланированиеПроект1_31" id="381">
+							<DataPath>Объект.Планирование.Проект1_31</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект1_31КонтекстноеМеню" id="382"/>
+							<ExtendedTooltip name="ПланированиеПроект1_31РасширеннаяПодсказка" id="383"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеПроект2_31" id="384">
+							<DataPath>Объект.Планирование.Проект2_31</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеПроект2_31КонтекстноеМеню" id="385"/>
+							<ExtendedTooltip name="ПланированиеПроект2_31РасширеннаяПодсказка" id="386"/>
+							<Events>
+								<Event name="OnChange">ПланированиеПроектПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПланированиеКомментарий_31" id="387">
+							<DataPath>Объект.Планирование.Комментарий_31</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>10</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ПланированиеКомментарий_31КонтекстноеМеню" id="388"/>
+							<ExtendedTooltip name="ПланированиеКомментарий_31РасширеннаяПодсказка" id="389"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+			</ChildItems>
+		</Table>
+		<InputField name="Комментарий" id="48">
+			<DataPath>Объект.Комментарий</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="КомментарийКонтекстноеМеню" id="49"/>
+			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="50"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.ПланЗанятостиСотрудников</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+			<Columns>
+				<AdditionalColumns table="Объект.Планирование">
+					<Column name="СменыИтог" id="1">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Смены итог</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>2</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+				</AdditionalColumns>
+			</Columns>
+		</Attribute>
+		<Attribute name="МесяцРегистрацииСтрокой" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Месяц регистрации строкой</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>15</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ЗаполнитьЗначениемНаПериод" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить значением на период</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить значение на период</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьДоОкончанияПериода</Action>
+		</Command>
+	</Commands>
+</Form>
